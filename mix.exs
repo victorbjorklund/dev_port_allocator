@@ -1,13 +1,18 @@
 defmodule DevPortAllocator.MixProject do
   use Mix.Project
 
+  @version "0.1.0"
+  @source_url "https://github.com/victorbjorklund/dev_port_allocator"
+
   def project do
     [
       app: :dev_port_allocator,
-      version: "0.1.0",
+      version: @version,
       elixir: "~> 1.18",
       start_permanent: Mix.env() == :prod,
       description: description(),
+      source_url: @source_url,
+      docs: docs(),
       package: package(),
       deps: deps()
     ]
@@ -32,7 +37,16 @@ defmodule DevPortAllocator.MixProject do
   defp package do
     [
       licenses: ["MIT"],
-      links: %{"GitHub" => "https://github.com/tillitio/dev_port_allocator"}
+      links: %{"GitHub" => @source_url}
+    ]
+  end
+
+  defp docs do
+    [
+      main: "readme",
+      extras: ["README.md"],
+      source_ref: "v#{@version}",
+      source_url: @source_url
     ]
   end
 end
